@@ -29,15 +29,12 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
-var databaseUri = 'mongodb://localhost/mongoHeadlines';
+var MONGODB_URI = 'mongodb://heroku_pf3nnj4s:h2ichvv10jbj8qv3dssntg442d@ds151927.mlab.com:51927/heroku_pf3nnj4s';
 if (process.env.MONGODB_URI);
 else{
-mongoose.connect(databaseUri)
+mongoose.connect(ONGODB_URI)
 
 }
-
-
-
 
 
 // Routes
