@@ -37,12 +37,7 @@ mongoose.connect(databaseUri)
 }
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-if (process.env.MONGODB_URI);
-else{
-mongoose.connect(ONGODB_URI)
 
-}
 
 
 // Routes
