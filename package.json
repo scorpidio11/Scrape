@@ -1,26 +1,22 @@
 {
-  "name": "scrape",
+  "name": "NYT-Mongo-Scraper",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This is a Node.js application that utilizes Cheerio and a MongoDB back-end to scrape and save NYT articles to a Bootstrap UI.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scorpidio11/Scrape.git"
-  },
-  "author": "Mia Pak",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/scorpidio11/Scrape/issues"
-  },
-  "homepage": "https://github.com/scorpidio11/Scrape#readme",
+  "homepage": "https://github.com/scorpidio11/Scrape/",
   "dependencies": {
-    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.4",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.3.15"
+    "mongoose": "^5.0.14",
+    "request": "^2.85.0"
   }
 }
