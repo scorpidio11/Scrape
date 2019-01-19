@@ -39,6 +39,8 @@ h2 {
 
 .overlay{
 background-color: rgba(189, 32, 32, 0.5);
+padding:1%;
+border: solid 2px white;
 
 }
 
@@ -58,5 +60,5 @@ background-color: rgba(189, 32, 32, 0.5);
 
 .jumbotron {
     height:340px;
-    padding: 7%;
+    padding: 5%;
 }
