@@ -9,7 +9,7 @@ const cheerio = require("cheerio"); //Scraper
 const db = require("./models");
 
 // Port configuration for local/Heroku
-const PORT = process.env.PORT || process.argv[2] || 8080;
+const PORT = process.env.PORT || process.argv[2] || 3001;
 
 // Initialize Express
 const app = express();

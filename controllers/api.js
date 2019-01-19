@@ -20,22 +20,22 @@ router.get("/scrape", (req, res) => {
                 let result = {};
                 // Add the text and href of every link, and summary and byline, saving them to object
                 result.title = $(element)
-                    .children('.story-body')
-                    .children('.headline')
-                    .children('a')
+                    .find('.story-body')
+                    .find('.headline')
+                    .find('a')
                     .text().trim();
                 result.link = $(element)
-                    .children('.story-body')
-                    .children('a')
+                    .find('.story-body')
+                    .find('a')
                     .attr("href");
                 result.summary = $(element)
-                    .children('.summary')
+                    .find('.summary')
                     .text().trim()
                     || $(element)
-                        .children('p')
+                        .find('p')
                         .text().trim();
                 result.byline = $(element)
-                    .children('.byline')
+                    .find('.byline')
                     .text().trim()
                     || 'No byline available'
                     console.log(result);
