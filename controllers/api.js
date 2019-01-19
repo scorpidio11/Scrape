@@ -8,7 +8,7 @@ const cheerio = require("cheerio");
 router.get("/scrape", (req, res) => {
     console.log("scrape ran")
     // First, we grab the body of the html with request
-    request("https://www.nytimes.com/", (error, response, body) => {
+    request("https://www.nytimes.com/section/world", (error, response, body) => {
         if (!error && response.statusCode === 200) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(body);
@@ -20,26 +20,40 @@ router.get("/scrape", (req, res) => {
                 let result = {};
                 // Add the text and href of every link, and summary and byline, saving them to object
                 result.title = $(element)
-                    .children('.story-heading')
-                    .children('a')
+                    .find('.headline')
+//                     .children('a')
                     .text().trim();
+                    
                 result.link = $(element)
-                    .children('.story-heading')
-                    .children('a')
-                    .attr("href");
+                   .find('.headline')
+.find('h2 .headline a').attr("href");
+
+
+
                 result.summary = $(element)
-                    .children('.summary')
-                    .text().trim()
-                    || $(element)
-                        .children('ul')
-                        .text().trim();
+
+                    .find('.summary')
+                    .text().trim();
+                  
+
+// .find('ul').addClass('.summery').find('.summery li')
+//                         .text().trim()
+
+
+
                 result.byline = $(element)
-                    .children('.byline')
-                    .text().trim()
-                    || 'No byline available'
+                    .find('.byline')
+              
+                    .text().trim();
+                   
                 
+                    console.log(result);
+
                 if (result.title && result.link && result.summary){
                     // Create a new Article using the `result` object built from scraping, but only if both values are present
+                     
+                     
+                     
                     db.Article.create(result)
                         .then(function (dbArticle) {
                             // View the added result in the console
@@ -51,6 +65,8 @@ router.get("/scrape", (req, res) => {
                         });
                 };
             });
+
+          
             // If we were able to successfully scrape and save an Article, redirect to index
             res.redirect('/')
         }
