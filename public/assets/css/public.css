@@ -30,3 +30,33 @@
 	font-family: "Times New Roman", Times, serif; 
 	
 }
+
+h2 {
+	
+	font-family: "Times New Roman", Times, serif; 
+	
+}
+
+.overlay{
+background-color: rgba(189, 32, 32, 0.5);
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #bd2130;
+    border-color: #bd2130;
+}
+
+.bg-primary {
+    background-color: #a4a3a3!important;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.jumbotron {
+    height:340px;
+    padding: 7%;
+}
