@@ -2,7 +2,7 @@
 
 ### Overview
 
-Scrap is a web app that lets users view and leave comments on the latest news. But instead of writing articles, flex Mongoose and Cheerio muscles to scrape news from another site.
+NYT World News Scrap is a web app that lets users view and leave comments on the latest news. But instead of writing articles, flex Mongoose and Cheerio muscles to scrape news from another site.
 
 
 
