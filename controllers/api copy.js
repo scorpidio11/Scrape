@@ -20,27 +20,39 @@ router.get("/scrape", (req, res) => {
                 let result = {};
                 // Add the text and href of every link, and summary and byline, saving them to object
                 result.title = $(element)
-                    .children('.story-body')
-                    .children('.headline')
-                    .children('a')
+                    .find('.story-body')
+                    .find('.headline')
+//                     .children('a')
                     .text().trim();
+                    
                 result.link = $(element)
-                    .children('.story-body')
-                    .children('a')
-                    .attr("href");
+                .children('.story-body')
+.children('a').attr("href");
+
+// result.link = $(element).find("h2.title a").attr("href");      
+
                 result.summary = $(element)
-                    .children('.summary')
-                    .text().trim()
-                    || $(element)
-                        .children('p')
-                        .text().trim();
+
+                    .find('.summary')
+                    .text().trim();
+                  
+
+// .find('ul').addClass('.summery').find('.summery li')
+//                         .text().trim()
+
                 result.byline = $(element)
-                    .children('.byline')
-                    .text().trim()
-                    || 'No byline available'
+                    .find('.byline')
+              
+                    .text().trim();
+                   
+                
                     console.log(result);
+
                 if (result.title && result.link && result.summary){
                     // Create a new Article using the `result` object built from scraping, but only if both values are present
+                     
+                     
+                     
                     db.Article.create(result)
                         .then(function (dbArticle) {
                             // View the added result in the console
@@ -52,6 +64,8 @@ router.get("/scrape", (req, res) => {
                         });
                 };
             });
+
+          
             // If we were able to successfully scrape and save an Article, redirect to index
             res.redirect('/')
         }

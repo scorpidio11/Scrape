@@ -1,7 +1,7 @@
 // Dependencies
 const express = require("express");
 const bodyParser = require("body-parser"); //JSON responses
-const mongoose = require("mongoose"); //Mongo object modelling
+const mongoose = require("mongoose"); //Mongo object modelling 
 const request = require("request"); //Makes http calls
 const cheerio = require("cheerio"); //Scraper
 
@@ -28,8 +28,7 @@ app.use(express.static("public"));
 const router = require("./controllers/api.js");
 app.use(router);
 // Connect to the Mongo DB
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
@@ -37,6 +36,6 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // Start the server
-app.listen(PORT, function() {
-  console.log(`This application is running on port: ${PORT}`);
+app.listen(PORT, function () {
+    console.log(`This application is running on port: ${PORT}`);
 });
